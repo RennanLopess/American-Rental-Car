@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // CARROSSEL
   const carousels = document.querySelectorAll(".carousel");
 
   carousels.forEach(carousel => {
@@ -27,4 +28,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  // FILTRO E MODAL
+  const btnAbrirFiltro = document.getElementById("btnAbrirFiltro");
+  const btnFecharFiltro = document.getElementById("btnFecharFiltro");
+  const modalFiltro = document.getElementById("modalFiltro");
+  const filtros = document.querySelectorAll(".filtro-opcao");
+  const cards = document.querySelectorAll(".car-card-v2");
+  const mensagem = document.getElementById("mensagem-nenhum");
+
+  if (btnAbrirFiltro && btnFecharFiltro && modalFiltro) {
+    btnAbrirFiltro.addEventListener("click", () => {
+      modalFiltro.style.display = "flex";
+    });
+
+    btnFecharFiltro.addEventListener("click", () => {
+      modalFiltro.style.display = "none";
+    });
+  }
+
+  filtros.forEach(filtro => {
+    filtro.addEventListener("change", aplicarFiltro);
+  });
+
+  function aplicarFiltro() {
+    const ativos = Array.from(filtros)
+      .filter(f => f.checked)
+      .map(f => f.value.toLowerCase());
+
+    let algumVisivel = false;
+
+    cards.forEach(card => {
+      const badge = card.querySelector(".badge")?.textContent.toLowerCase() || "";
+      const detalhes = card.querySelector(".car-details")?.textContent.toLowerCase() || "";
+      const tags = card.querySelector(".car-tags")?.textContent.toLowerCase() || "";
+      const textoCard = `${badge} ${detalhes} ${tags}`;
+
+      const corresponde = ativos.every(valor => textoCard.includes(valor));
+
+      if (ativos.length === 0 || corresponde) {
+        card.style.display = "flex";
+        algumVisivel = true;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    mensagem.style.display = algumVisivel ? "none" : "block";
+  }
 });

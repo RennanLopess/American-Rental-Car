@@ -22,8 +22,9 @@
             </div>
         </div>
         <div class="hero">
-            <h2>Alugue o Carro dos <span>Seus Sonhos</span></h2>
-            <p>Frota premium com os melhores veículos dos Estados Unidos.<br></p>
+            <h2>O carro ideal para sua <span>viagem perfeita</span></h2>
+            <p>Escolha entre SUVs, luxuosos e familiares. Conforto, segurança e praticidade.</p>
+
             <!-- <div class="buttons">
                 <a href="#frota" class="btn-red">Ver Veículos Disponíveis</a>
                 <a href="https://wa.me/15551234567?text=Olá,%20gostaria%20de%20alugar%20um%20carro" target="_blank"
@@ -37,6 +38,36 @@
         <h3>Nossa Frota Premium</h3>
         <p>Escolha entre nossos veículos cuidadosamente selecionados. Todos revisados e com seguro completo para sua
             tranquilidade.</p>
+
+        <!-- Botão Filtro -->
+        <div class="filtro-barra">
+            <button id="btnAbrirFiltro" class="btn-filtro">
+                <span class="material-symbols-outlined">tune</span> Filtro
+            </button>
+        </div>
+
+        <!-- Modal de Filtro -->
+        <div id="modalFiltro" class="modal-filtro-overlay">
+            <div class="modal-filtro">
+                <h4>Filtrar Veículos</h4>
+                <div class="filtro-opcoes">
+                    <label><input type="checkbox" class="filtro-opcao" value="luxo"> Luxo</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="suv"> SUV</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="5"> 5 Lugares</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="7"> 7 Lugares</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="camionete"> Camionete</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="van"> Van</label>
+                    <label><input type="checkbox" class="filtro-opcao" value="minivan"> Minivan</label>
+                </div>
+                <button id="btnFecharFiltro" class="btn-fechar-filtro">Fechar</button>
+            </div>
+        </div>
+
+        <p id="mensagem-nenhum" style="display:none; color: red; font-weight: bold; margin-top: 20px;">
+            Nenhum veículo disponível para os filtros selecionados.
+        </p>
+
+
         <div class="carros-container">
 
 
@@ -70,6 +101,35 @@
             </div>
 
 
+            <div class="car-card-v2">
+                <div class="car-img carousel">
+                    <span class="badge luxo">SUV</span>
+                    <img src="img/IMG-20250619-WA0002.jpg" class="active" alt="Foto 1 Tesla">
+                    <img src="img/IMG-20250619-WA0003.jpg" alt="Foto 2 Tesla">
+                    <img src="img/IMG-20250619-WA0005.jpg" alt="Foto 3 Tesla">
+                    <button class="carousel-arrow prev">&#10094;</button>
+                    <button class="carousel-arrow next">&#10095;</button>
+                </div>
+                <div class="car-content">
+                    <h4>Corolla LE 2.0</h4>
+                    <div class="car-details">
+                        <span>📅 2024</span>
+                        <span>👥 7 pessoas</span>
+                    </div>
+                    <div class="car-tags">
+                        <span>Automático</span>
+                        <span>•</span>
+                        <span>Elétrico</span>
+                    </div>
+                    <div class="car-footer">
+                        <p class="preco">$ <strong>199</strong> <span>/dia</span></p>
+                        <a href="https://wa.me/15551234567?text=Quero%20alugar%20o%20Tesla%20Model%20S" target="_blank"
+                            class="btn-alugar-v2">Alugar</a>
+                    </div>
+                </div>
+            </div>
+
+
 
             <div class="car-card-v2">
                 <div class="car-img carousel">
@@ -100,7 +160,7 @@
             </div>
 
 
-            
+
         </div>
     </section>
 
